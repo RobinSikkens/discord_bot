@@ -1,0 +1,21 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+black = "*"
+
+[packages]
+asyncio = "*"
+discord-py = "*"
+
+[requires]
+python_version = "3.8"
+
+[scripts]
+fmt = "black bot/"
+bot = "python bot/main.py"
+
+[pipenv]
+allow_prereleases = true
