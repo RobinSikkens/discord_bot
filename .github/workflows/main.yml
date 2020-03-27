@@ -22,8 +22,10 @@ jobs:
         run: |
           echo "Installing app"
           pip install black
+      - name: Checkout project
+        uses: actions/checkout@v2
       - name: Check style
         run: |
           echo "Running stylecheck using black"
-          black -t py38 --check bot/
+          black -t py38 --check $GITHUB_WORKSPACE/bot/
           
