@@ -59,7 +59,9 @@ async def handle_message(m):
 
     response = None
     try:
-        response = await safe_call(COMMAND_DICT, m_command[len(PREFIX):], m_contents, m, CLIENT,)
+        response = await safe_call(
+            COMMAND_DICT, m_command[len(PREFIX) :], m_contents, m, CLIENT,
+        )
     except CommandNotFoundError:
         LOGGER.debug(f"Command unknown: {m_command[1:]}")
         return
