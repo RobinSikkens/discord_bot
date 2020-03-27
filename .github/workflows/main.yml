@@ -18,14 +18,12 @@ jobs:
     steps:
       - name: Setup python
         uses: actions/setup-python@v1
-      - name: Install pipenv
-        uses: dschep/install-pipenv-action@v1
       - name: Install black
         run: |
           echo "Installing app"
-          pipenv install black
+          pip install black
       - name: Check style
         run: |
           echo "Running stylecheck using black"
-          pipenv run black -t py38 --check bot/
+          black -t py38 --check bot/
           
