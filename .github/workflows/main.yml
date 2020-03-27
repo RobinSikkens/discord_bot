@@ -16,14 +16,16 @@ jobs:
     name: Performing stylecheck
     runs-on: [ubuntu-latest]
     steps:
-      - name: Install pipenv
+      - name: Setup python
+        uses: actions/setup-python@v1
+      - name: Install black
         run: |
-          echo "Installing pipenv from source"
-          curl https://raw.githubusercontent.com/kennethreitz/pipenv/master/get-pipenv.py | python
           echo "Installing app"
-          pipenv install --dev
+          pip install black
+      - name: Checkout project
+        uses: actions/checkout@v2
       - name: Check style
         run: |
           echo "Running stylecheck using black"
-          pipenv run black -t py38 --check
+          black -t py38 --check $GITHUB_WORKSPACE/bot/
           
