@@ -16,6 +16,9 @@ CLIENT = discord.Client()
 LOGGER = get_logger("bot")
 PREFIX = os.environ.get("COMMAND_PREFIX", "!")
 
+DB_ENGINE = None
+DB_SESSION = None
+
 
 @CLIENT.event
 async def on_ready():
@@ -60,7 +63,7 @@ async def handle_message(m):
     response = None
     try:
         response = await safe_call(
-            COMMAND_DICT, m_command[len(PREFIX) :], m_contents, m, CLIENT,
+            COMMAND_DICT, m_command[len(PREFIX) :], m_contents, m, CLIENT, DB_SESSION,
         )
     except CommandNotFoundError:
         LOGGER.debug(f"Command unknown: {m_command[1:]}")
