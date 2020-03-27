@@ -18,9 +18,8 @@ jobs:
     steps:
       - name: Install pipenv
         run: |
-          echo "Installing pipenv"
-          pip install wheel
-          pip install --user pipenv
+          echo "Installing pipenv from source"
+          curl https://raw.githubusercontent.com/kennethreitz/pipenv/master/get-pipenv.py | python
           echo "Installing app"
           pipenv install --dev
       - name: Check style
