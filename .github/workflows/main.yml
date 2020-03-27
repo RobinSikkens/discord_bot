@@ -27,5 +27,5 @@ jobs:
       - name: Check style
         run: |
           echo "Running stylecheck using black"
-          pipenv run black -t py38 --check
+          pipenv run black -t py38 --check bot/
           
