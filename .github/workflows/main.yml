@@ -16,9 +16,11 @@ jobs:
     name: Performing stylecheck
     runs-on: [ubuntu-latest]
     steps:
-      - name: Install pipenv
+      - name: Setup python
         uses: actions/setup-python@v1
+      - name: Install pipenv
         uses: dschep/install-pipenv-action@v1
+      - name: Install app
         run: |
           echo "Installing app"
           pipenv install --dev
