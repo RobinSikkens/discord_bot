@@ -17,9 +17,9 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - name: Install pipenv
+      - uses: actions/setup-python@v1
+      - uses: dschep/install-pipenv-action@v1
         run: |
-          echo "Installing pipenv from source"
-          curl https://raw.githubusercontent.com/kennethreitz/pipenv/master/get-pipenv.py | python
           echo "Installing app"
           pipenv install --dev
       - name: Check style
