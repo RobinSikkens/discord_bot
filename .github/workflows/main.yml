@@ -19,6 +19,7 @@ jobs:
       - name: Install pipenv
         run: |
           echo "Installing pipenv"
+          pip install wheel
           pip install --user pipenv
           echo "Installing app"
           pipenv install --dev
